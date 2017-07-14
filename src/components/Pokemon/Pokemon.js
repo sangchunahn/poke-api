@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import autoBind from 'react-autobind'
 import { observer, inject } from 'mobx-react';
+import './Pokemon.css'
 import _ from 'lodash'
 
 @inject('dataStore')
@@ -18,8 +19,8 @@ class Pokemon extends Component {
   renderList() {
     return _.map(this.dataStore.pokemon, pokemon => {
       return (
-        <div key={pokemon.name}>
-          <p>{pokemon.name}</p>
+        <div className='pokemon-each' key={pokemon.name}>
+          {pokemon.name}
         </div>
       )
     })
@@ -27,8 +28,10 @@ class Pokemon extends Component {
   render() {
     console.log('this.dataStore.pokemon: ', this.dataStore.pokemon);
     return (
-      <div>
+      <div className='container'>
+        <div className='pokemon-list'>
         {this.renderList()}
+        </div>
       </div>
     );
   }

@@ -1,0 +1,13 @@
+.container {
+  width: 100%;
+}
+
+.pokemon-list {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.pokemon-each {
+  width: 20%;
+}
