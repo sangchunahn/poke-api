@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import autoBind from 'react-autobind'
 import { observer, inject } from 'mobx-react';
+import { Link } from 'react-router'
 import './Pokemon.css'
 import _ from 'lodash'
 
@@ -17,10 +18,10 @@ class Pokemon extends Component {
     this.dataStore.fetchPokemon();
   }
   renderList() {
-    return _.map(this.dataStore.pokemon, pokemon => {
+    return _.map(this.dataStore.pokemon, (pokemon, index) => {
       return (
         <div className='pokemon-each' key={pokemon.name}>
-          {pokemon.name}
+          <Link to={`/${index + 1}`}>{pokemon.name}</Link>
         </div>
       )
     })

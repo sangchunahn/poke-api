@@ -5,6 +5,8 @@ import {Router, Route, hashHistory, IndexRoute} from 'react-router';
 import DataStore from './stores/DataStore'
 import './index.css';
 import App from './components/App';
+import Pokemon from './components/Pokemon/Pokemon'
+import PokemonDetails from './components/Pokemon/PokemonDetails/PokemonDetails'
 
 const dataStore = new DataStore();
 
@@ -12,6 +14,9 @@ ReactDOM.render(
   <Provider dataStore={dataStore}>
     <Router history={hashHistory} onUpdate={ () => { handleRouteChange(this.state); }}>
       <Route path='/' component={ App }>
+        <Route path='/pokemon' component={ Pokemon }>
+          <Route path ='/:id' component={ PokemonDetails }/>
+        </Route>
       </Route>
     </Router>
   </Provider>
